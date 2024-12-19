@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    font-family: "Cabin";
+    padding: 0;
+    margin: 0;
+    color: #120b46;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow-x: hidden;
+
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 5px 1px 10px rgba(18, 11, 70, 0.4);
+    padding: 10px 13px 9px 13px;
+    width: 100%;
+    /* background-color: #f2f2f2; */
+}
+
+
+.list {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-left: 35px;
+    gap: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: #120b46;
+}
+
+.login-btn-container {
+    width: 115px;
+    margin-right: 15px;
+    margin-left: 40px;
+}
+
+.login-btn {
+    background-color: #120b46;
+    color: white;
+    border: none;
+    padding: 13px 27px 13px 27px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.website-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: -35px;
+    margin-left: 10px;
+}
+
+.main-heading .title {
+    color: #120b46;
+}
+
+.main-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* home-content */
+.content {
+    height: 90vh;
+    width: 100%;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: #f2f2f2; */
+    /* background: url(assets/background.jpg);
+    background-size: cover;
+    background-position: center; */
+}
+
+.signup-btn {
+    background-color: #8ae68e;
+    border: none;
+    padding: 13px 27px 13px 27px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+@media (max-width : 500px) {
+    .list {
+        justify-content: center;
+        gap: 30px;
+        font-size: small;
+    }
+
+    .login-btn-container {
+        margin-left: 0;
+    }
+
+    .content {
+        font-size: large;
+    }
+}
+
+
+/* login */
+.loginForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    width: 100%;
+}
+
+.loginFormChild {
+    display: flex;
+    /* border: 2px solid black; */
+    box-shadow: 5px 1px 10px rgba(18, 11, 70, 0.4);
+    border-radius: 5px;
+    max-width: 900px;
+    width: 700px;
+}
+
+.loginFormImage {
+    width: 100%;
+    background: url(assets/loginPage.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.loginFormImage h2 {
+    text-align: center;
+    /* margin-bottom: 30px; */
+}
+
+.loginFormContent {
+    width: 100%;
+    padding: 35px;
+}
+
+.loginFormContent h2 {
+    text-align: center;
+}
+
+form .inputField {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+form .inputField input {
+    width: 100%;
+    height: 100%;
+    font-size: 0.95rem;
+    padding: 0 15px;
+    border-radius: 3px;
+    border: 1px solid #717171;
+}
+
+.inputField input:focus {
+    border-color: #00bcd4;
+    outline: none;
+}
+
+.loginForm a:hover {
+    text-decoration: underline;
+}
+
+.loginForm a {
+    color: #6b6691;
+}
+
+form .loginButton {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 14px 0;
+    border-radius: 3px;
+    margin: 25px 0;
+    margin-right: 0px;
+    background-color: #8ae68e;
+    cursor: pointer;
+}
+
+form .inputField input,
+.loginButton {
+    box-sizing: border-box;
+}
+
+.bottomLink {
+    text-align: center;
+}
+
+@media (max-width:500px) {
+    .loginFormChild {
+        width: 95%;
+    }
+
+    .loginFormChild .loginFormImage {
+        display: none;
+    }
+
+    .loginFormChild .loginFormContent {
+        padding: 30px 20px;
+    }
+}
