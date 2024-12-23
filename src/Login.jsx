@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Login() {
     return (
         <div className="loginForm">
@@ -18,7 +20,7 @@ function Login() {
                     </form>
                     <div className="bottomLink">
                         Don't have an account?
-                        <a href="#">Sign up</a>
+                        <Link to="/Signup">Sign up</Link>
                     </div>
                 </div>
             </div>

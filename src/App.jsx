@@ -5,7 +5,7 @@ import Error from "./Error";
 import Login from "./Login";
 import { Route, Routes } from "react-router-dom"
 import Signup from "./Signup";
-import LoginModel from "./LoginModel";
+
 function App() {
   return (
     <>
