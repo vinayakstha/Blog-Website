@@ -25,7 +25,7 @@ function Signup() {
                     </form>
                     <div className="signupBottomLink">
                         Have an account?
-                        <Link to="/Login">Login</Link>
+                        <Link to="/Login"> Login</Link>
                     </div>
                 </div>
             </div>

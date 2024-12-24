@@ -12,15 +12,15 @@ function Login() {
                         <div className="inputField">
                             <input type="text" placeholder="Email" required />
                         </div>
-                        <div className="inputField">
-                            <input type="password" placeholder="Password" required />
+                        <div className="inputField" id="loginPagePassword">
+                            <input className="loginPagePaswordInput" type="password" placeholder="Password" required />
                         </div>
-                        <a href="#" className="forgotPassword">Forgot password?</a>
+                        <Link to="/PasswordReset" className="forgotPassword">Forgot password?</Link>
                         <button type="submit" className="loginButton">Login</button>
                     </form>
                     <div className="bottomLink">
                         Don't have an account?
-                        <Link to="/Signup">Sign up</Link>
+                        <Link to="/Signup"> Sign up</Link>
                     </div>
                 </div>
             </div>
