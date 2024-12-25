@@ -426,3 +426,47 @@ form .passwordResetInputField input,
         padding: 30px 20px;
     }
 }
+
+/* blog */
+
+.blogPost {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+    box-shadow: 5px 1px 10px rgba(18, 11, 70, 0.4);
+    border-radius: 5px;
+    max-width: 500px;
+}
+
+.blogPost img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blogPost .blogImage {
+    width: 45%;
+}
+
+.blogPost .blogText {
+    width: 55%;
+}
+
+.blogPost .blogText h2 {
+    font-size: 1.5rem;
+}
+
+.blogPost .blogText .blogInfo {
+    margin: 5px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.blogPost .blogText .blogInfo span {
+    color: #888;
+}
+
+.blogPost .blogText .blogDesc {
+    line-height: 1.4rem;
+}
