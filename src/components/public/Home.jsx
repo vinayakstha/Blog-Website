@@ -8,7 +8,6 @@ function Home() {
     }
     return (
         <>
-            <Navbar />
             <div className={HomeCSS["content"]}>
                 <div className={HomeCSS["child-content"]}>
                     <div className={HomeCSS["home-content"]}>
