@@ -10,14 +10,21 @@ function Home() {
         <>
             <Navbar />
             <div className={HomeCSS["content"]}>
-                <div className={HomeCSS["main-heading"]}>
-                    <h1 className={HomeCSS["title"]}>Write. Publish. Inspire.</h1>
-                </div>
-                <div className={HomeCSS["paragraph"]}>
-                    Become an author.
-                </div>
-                <div className={HomeCSS["signup-btn-container"]}>
-                    <button className={HomeCSS["signup-btn"]} onClick={signupPage}>Signup</button>
+                <div className={HomeCSS["child-content"]}>
+                    <div className={HomeCSS["home-content"]}>
+                        <div className={HomeCSS["main-heading"]}>
+                            <h1 className={HomeCSS["title"]}>Write. Publish. Inspire.</h1>
+                        </div>
+                        <div className={HomeCSS["paragraph"]}>
+                            <p className={HomeCSS["description"]}>Become an author.</p>
+                        </div>
+                        <div className={HomeCSS["signup-btn-container"]}>
+                            <button className={HomeCSS["signup-btn"]} onClick={signupPage}>Signup</button>
+                        </div>
+                    </div>
+                    <div className={HomeCSS["home-image"]}>
+
+                    </div>
                 </div>
             </div>
         </>

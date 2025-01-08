@@ -104,4 +104,9 @@ form .input-field input,
     .login-form-child .login-form-content {
         padding: 30px 20px;
     }
+
+    .signup-btn-container {
+        display: flex;
+        justify-content: center;
+    }
 }
