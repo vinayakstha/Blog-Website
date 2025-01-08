@@ -1,6 +1,11 @@
+import ErrorCSS from "./Error.module.css";
 function Error() {
     return (
-        <h1>error</h1>
+        <div className={ErrorCSS["error-main-container"]}>
+            <div className={ErrorCSS["error-child-container"]}>
+
+            </div>
+        </div>
     )
 }
 export default Error;
