@@ -99,6 +99,13 @@ form .input-field input,
     box-sizing: border-box;
 }
 
+.error-message {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+
 .bottom-link {
     text-align: center;
 }

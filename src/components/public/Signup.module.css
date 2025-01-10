@@ -95,6 +95,12 @@ form .signup-input-field input,
     text-align: center;
 }
 
+.error-message {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
 @media (max-width:500px) {
     .signup-form-child {
         width: 95%;

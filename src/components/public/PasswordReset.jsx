@@ -1,9 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
 import PasswordResetCSS from "./PasswordReset.module.css";
+import { useForm } from "react-hook-form";
 
 function PasswordReset() {
     const navigate = useNavigate();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm();
+
+    function onSubmit(data) {
+        console.log(data);
+    }
     return (
         <div className={PasswordResetCSS["password-reset-form"]}>
             <div className={PasswordResetCSS["password-reset-form-child"]}>
@@ -16,16 +26,54 @@ function PasswordReset() {
                         </button>
                     </div>
                     <h2>Change Password</h2>
-                    <form action="#">
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className={PasswordResetCSS["password-reset-input-field"]}>
-                            <input type="text" placeholder="Email" required />
+                            <input type="text" placeholder="Email"
+                                {...register("email", {
+                                    required: "Email is required",
+                                    pattern: {
+                                        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                                        message: "Invalid Email"
+                                    }
+                                })}
+                            />
                         </div>
+                        {errors.email && <p className={PasswordResetCSS["error-message"]}>{errors.email.message}</p>}
+
                         <div className={PasswordResetCSS["password-reset-input-field"]}>
-                            <input type="password" placeholder="Password" required />
+                            <input type="password" placeholder="Password"
+                                {...register("password", {
+                                    required: "Password is required",
+                                    pattern: {
+                                        value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/,
+                                        message: "Must include letters and numbers"
+                                    },
+                                    minLength: {
+                                        value: 5,
+                                        message: "Must be longer than 5 characters"
+                                    }
+                                })}
+                            />
                         </div>
+                        {errors.password && <p className={PasswordResetCSS["error-message"]}>{errors.password.message}</p>}
+
                         <div className={PasswordResetCSS["password-reset-input-field"]}>
-                            <input type="password" placeholder="Confirm Password" required />
+                            <input type="password" placeholder="Confirm Password"
+                                {...register("confirmPassword", {
+                                    required: "Password is required",
+                                    pattern: {
+                                        value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/,
+                                        message: "Must include letters and numbers"
+                                    },
+                                    minLength: {
+                                        value: 5,
+                                        message: "Must be longer than 5 characters"
+                                    }
+                                })}
+                            />
                         </div>
+                        {errors.confirmPassword && <p className={PasswordResetCSS["error-message"]}>{errors.confirmPassword.message}</p>}
+
                         <button type="submit" className={PasswordResetCSS["password-reset-button"]}>Confirm</button>
                     </form>
                     <div className={PasswordResetCSS["password-reset-bottom-link"]}>
