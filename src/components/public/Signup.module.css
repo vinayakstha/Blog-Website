@@ -27,6 +27,17 @@
     padding: 35px;
 }
 
+.exit-button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.exit-button-container button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
 form .signup-input-field {
     height: 50px;
     width: 100%;

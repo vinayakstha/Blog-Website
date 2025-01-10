@@ -9,6 +9,7 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+    color: #fff;
 }
 
 .text {
@@ -28,4 +29,20 @@ footer {
 
 .link:hover {
     text-decoration: underline;
+}
+
+.footer-text {
+    color: #fff;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 15px;
+    color: white;
+}
+
+.icons svg {
+    color: #fff;
 }

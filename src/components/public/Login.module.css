@@ -33,6 +33,17 @@
     padding: 35px;
 }
 
+.exit-button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.exit-button-container button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
 .login-form-content h2 {
     text-align: center;
 }

@@ -1,4 +1,5 @@
 import FooterCSS from "./Footer.module.css";
+import { Facebook, Instagram } from "lucide-react";
 
 function Footer() {
     return (
@@ -6,9 +7,11 @@ function Footer() {
             <div className={FooterCSS["container"]}>
                 <p className={FooterCSS["text"]}>© {new Date().getFullYear()} vinayakstha. All rights reserved.</p>
                 <div className={FooterCSS["links"]}>
-                    <a href="/privacy" className={FooterCSS["link"]}>Privacy Policy</a>
-                    <a href="/terms" className={FooterCSS["link"]}>Terms of Service</a>
-                    <a href="/contact" className={FooterCSS["link"]}>Contact Us</a>
+                    <p className={FooterCSS["footer-text"]}>Contact Us</p>
+                </div>
+                <div className={FooterCSS["icons"]}>
+                    <a href="http://facebook.com"><Facebook /></a>
+                    <a href="http://instagram.com"><Instagram /></a>
                 </div>
             </div>
         </footer>

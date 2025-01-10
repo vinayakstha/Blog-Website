@@ -1,12 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { X } from "lucide-react";
 import PasswordResetCSS from "./PasswordReset.module.css";
+
 function PasswordReset() {
+    const navigate = useNavigate();
     return (
         <div className={PasswordResetCSS["password-reset-form"]}>
             <div className={PasswordResetCSS["password-reset-form-child"]}>
                 <div className={PasswordResetCSS["password-reset-form-image"]}>
                 </div>
                 <div className={PasswordResetCSS["password-reset-form-content"]}>
+                    <div className={PasswordResetCSS["exit-button-container"]}>
+                        <button onClick={() => navigate(-1)}>
+                            <X />
+                        </button>
+                    </div>
                     <h2>Change Password</h2>
                     <form action="#">
                         <div className={PasswordResetCSS["password-reset-input-field"]}>
