@@ -16,6 +16,11 @@
     border-radius: 7px;
     cursor: pointer;
     margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover {
+    background-color: #acf2b2;
 }
 
 

@@ -80,6 +80,11 @@ form .signup-button {
     margin-right: 0px;
     background-color: #8ae68e;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form .signup-button:hover {
+    background-color: #acf2b2;
 }
 
 form .signup-input-field input,

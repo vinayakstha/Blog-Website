@@ -92,6 +92,11 @@ form .login-button {
     margin-right: 0px;
     background-color: #8ae68e;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form .login-button:hover {
+    background-color: #acf2b2;
 }
 
 form .input-field input,
