@@ -3,7 +3,7 @@ import Login from './components/public/Login';
 import Home from './components/public/Home';
 import Error from './components/public/Error';
 import Signup from './components/public/Signup';
-import Article from './components/public/Article';
+import Post from './components/public/Post';
 import PasswordReset from './components/public/PasswordReset';
 import Layout from './components/public/Layout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -15,7 +15,7 @@ function App() {
         {/* <Suspense fallback={<div>Loading...</div>} /> */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/Article" element={<Article />} />
+          <Route path="/Post" element={<Post />} />
         </Route>
 
         <Route path="/Login" element={<Login />} />

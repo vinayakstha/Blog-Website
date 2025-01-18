@@ -1,0 +1,13 @@
+.post-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    min-height: 90vh;
+}
+
+@media (max-width: 768px) {
+    .post-container {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -15,7 +15,7 @@ function Navbar() {
 
             <ul className={NavbarCSS["list"]}>
                 <li className={NavbarCSS["nav-li"]}>  <Link to="/">HOME</Link></li>
-                <li className={NavbarCSS["nav-li"]}><Link to="/Article">POSTS</Link></li>
+                <li className={NavbarCSS["nav-li"]}><Link to="/Post">POSTS</Link></li>
 
                 {/* <li className="nav-li"><a href="#">AUTHORS</a></li> */}
             </ul>
