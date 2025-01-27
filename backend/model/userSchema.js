@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../database/db");
 
-const User = sequelize.define("users", {
+const Users = sequelize.define("users", {
     userId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -25,11 +25,11 @@ const User = sequelize.define("users", {
 
 (async () => {
     try {
-        await User.sync();
+        await Users.sync();
         console.log("User table has been created");
     } catch (error) {
         console.log("Error: ", error.message);
     }
-});
+})();
 
-module.exports = User;
+module.exports = Users;

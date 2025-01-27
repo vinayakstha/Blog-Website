@@ -1,8 +1,8 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes, Sequelize } = require("sequelize");
 const { sequelize } = require("../database/db");
-const User = require("./userSchema");
+const Users = require("./userSchema");
 
-const Post = sequelize.define("posts", {
+const Posts = sequelize.define("posts", {
     postId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -29,24 +29,24 @@ const Post = sequelize.define("posts", {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: User,
+            model: Users,
             key: "userId",
         },
-        onUpdate: CASCADE,
-        onDelete: CASCADE,
+        onUpdate: Sequelize.CASCADE,
+        onDelete: Sequelize.CASCADE,
     }
 });
 
-User.hasMany(Post, { foreignKey: "userId" });
-Post.belongsTo(User, { foreignKey: "userId" });
+Users.hasMany(Posts, { foreignKey: "userId" });
+Posts.belongsTo(Users, { foreignKey: "userId" });
 
 (async () => {
     try {
-        await Post.sync();
+        await Posts.sync();
         console.log("Post table has been created");
     } catch (error) {
         console.log("Error: ", error.message);
     }
-});
+})();
 
-module.exports = Post;
+module.exports = Posts;
