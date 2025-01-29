@@ -19,6 +19,71 @@ const create = async (req, res) => {
         console.log(error);
         res.status(500).json({ error: "failed to fetch users" });
     }
-}
+};
 
-module.exports = { create };
+const update = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const body = req.body;
+
+        const user = await User.update(body, {
+            where: { userId: userId }
+        });
+
+        if (user[0] === 0) {
+            return res.status(404).send({ message: "User not found" });
+        }
+        res.status(200).send({ message: "User updated successfully" });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "failed to update the user" });
+    };
+};
+
+const deleteUser = async (req, res) => {
+    try {
+        const userId = req.params.id;
+
+        const result = await User.destroy({
+            where: { userId: userId }
+        });
+
+        if (result === 0) {
+            return res.status(404).send({ message: "User not found" });
+        }
+
+        res.status(200).send({ message: "User deleted successfully" });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "failed to delete user" });
+    }
+};
+
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await User.findAll();
+        res.status(200).send({ data: users });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "failed to fetch users" });
+    }
+};
+
+
+const getUserById = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const user = await User.findByPk(userId);
+
+        if (!user) {
+            return res.status(404).send({ message: "User not found" });
+        }
+
+        res.status(200).send({ data: user });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "failed to fetch user" });
+    }
+};
+
+module.exports = { create, update, deleteUser, getAllUsers, getUserById };

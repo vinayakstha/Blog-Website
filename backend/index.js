@@ -10,7 +10,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 
 app.use(bodyParser.json());
-app.use("/", userRouter);
+app.use("/api/user", userRouter);
 
 
 
