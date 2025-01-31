@@ -9,6 +9,7 @@ const Signup = lazy(() => import('./components/public/Signup'));
 const Post = lazy(() => import('./components/public/Post'));
 const PasswordReset = lazy(() => import('./components/public/PasswordReset'));
 const Layout = lazy(() => import('./components/public/Layout'));
+const CreatePost = lazy(() => import('./components/private/CreatePost'));
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="Post" element={<Post />} />
+            <Route path="CreatePost" element={<CreatePost />} />
           </Route>
           <Route path="Login" element={<Login />} />
           <Route path="Signup" element={<Signup />} />
