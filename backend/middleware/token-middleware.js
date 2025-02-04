@@ -8,6 +8,9 @@ function authenticateToken(req, res, next) {
     if (req.path === "/api/auth/login") {
         return next();
     }
+    if (req.path === "/api/user/") {
+        return next();
+    }
 
     // Get token from Authorization header
     const token = req.header("Authorization")?.split(" ")[1];

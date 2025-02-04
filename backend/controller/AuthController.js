@@ -8,7 +8,7 @@ const login = async (req, res) => {
             return res.status(500).send({ message: "email is required" });
         }
         if (req.body.password == null) {
-            return res.status(500).send({ message: "email is required" });
+            return res.status(500).send({ message: "password is required" });
         }
         const user = await User.findOne({ where: { email: req.body.email } });
         if (!user) {

@@ -1,6 +1,7 @@
 const { DataTypes, Sequelize } = require("sequelize");
 const { sequelize } = require("../database/db");
 const Users = require("./userSchema");
+const Categories = require("./categorySchema");
 
 const Posts = sequelize.define("posts", {
     postId: {
@@ -34,19 +35,34 @@ const Posts = sequelize.define("posts", {
         },
         onUpdate: Sequelize.CASCADE,
         onDelete: Sequelize.CASCADE,
+    },
+    categoryId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: Categories,
+            key: "categoryId",
+        },
+        onUpdate: Sequelize.CASCADE,
+        onDelete: Sequelize.CASCADE,
     }
 });
 
 Users.hasMany(Posts, { foreignKey: "userId" });
 Posts.belongsTo(Users, { foreignKey: "userId" });
 
-(async () => {
-    try {
-        await Posts.sync();
-        console.log("Post table has been created");
-    } catch (error) {
-        console.log("Error: ", error.message);
-    }
-})();
+Categories.hasMany(Posts, { foreignKey: "categoryId" });
+Posts.belongsTo(Categories, { foreignKey: "categoriesId" });
+
+// (async () => {
+//     try {
+//         await Users.sync();
+//         await Categories.sync();
+//         await Posts.sync();
+//         console.log("Post table has been created");
+//     } catch (error) {
+//         console.log("Error: ", error.message);
+//     }
+// })();
 
 module.exports = Posts;

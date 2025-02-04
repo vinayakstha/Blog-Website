@@ -23,13 +23,13 @@ const Users = sequelize.define("users", {
     }
 });
 
-(async () => {
-    try {
-        await Users.sync();
-        console.log("User table has been created");
-    } catch (error) {
-        console.log("Error: ", error.message);
-    }
-})();
+// (async () => {
+//     try {
+//         await Users.sync();
+//         console.log("User table has been created");
+//     } catch (error) {
+//         console.log("Error: ", error.message);
+//     }
+// })();
 
 module.exports = Users;

@@ -14,7 +14,8 @@ const create = async (req, res) => {
             title: body.title,
             description: body.description,
             content: body.content,
-            userId: body.userId
+            userId: body.userId,
+            categoryId: body.categoryId
         });
         res.status(201).send({ data: post, message: "Post created successfully" });
     } catch (error) {
