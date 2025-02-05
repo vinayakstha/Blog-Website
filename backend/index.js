@@ -1,14 +1,18 @@
 const express = require("express");
 const app = express();
 const { connection } = require("./database/db");
+
 const Users = require("./model/userSchema");
 const Categories = require("./model/categorySchema");
 const Posts = require("./model/postSchema");
 const FavouritePosts = require("./model/favouritePostSchema");
+
 const userRouter = require("./routes/userRoute");
 const postRouter = require("./routes/postRoute");
 const authRouter = require("./routes/authRoute");
 const categoryRouter = require("./routes/categoryRoute");
+const favouritePostRouter = require("./routes/favouritePostRoute");
+
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const { authenticateToken } = require("./middleware/token-middleware");
@@ -21,6 +25,7 @@ app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/post", postRouter);
 app.use("/api/category", categoryRouter);
+app.use("/api/favouritePost", favouritePostRouter);
 
 
 
