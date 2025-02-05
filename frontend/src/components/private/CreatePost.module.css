@@ -24,6 +24,16 @@
     margin-right: 20px;
 }
 
+.middle-fields {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#dropdown-container {
+    width: 200px;
+}
+
 #file-input {
     width: 300px;
     cursor: pointer;
@@ -32,10 +42,16 @@
 #file-input-container {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+    width: 300px;
 }
 
 #text-area-input {
     margin-top: -10px;
+}
+
+.select-category {
+    height: 30px;
 }
 
 textarea {
@@ -71,4 +87,10 @@ textarea {
 
 .create-button:hover {
     background-color: #2e2970;
+}
+
+@media(max-width:500px) {
+    #file-input {
+        font-size: 14px;
+    }
 }
