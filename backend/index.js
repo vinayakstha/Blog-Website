@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const { connection } = require("./database/db");
+const cors = require("cors");
 
 const Users = require("./model/userSchema");
 const Categories = require("./model/categorySchema");
@@ -24,10 +25,13 @@ const { createUploadsFolder } = require("./security/helper");
 dotenv.config();
 const PORT = process.env.PORT;
 
+app.use(cors());
 app.use(bodyParser.json());
-app.use(authenticateToken);
+
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+app.use(authenticateToken);
+
 app.use("/api/post", postRouter);
 app.use("/api/category", categoryRouter);
 app.use("/api/favouritePost", favouritePostRouter);

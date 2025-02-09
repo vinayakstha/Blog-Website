@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
 import { useForm } from "react-hook-form";
 import SignupCSS from "./Signup.module.css";
+import axios from "axios";
+import { API } from "../../environment";
 
 function Signup() {
     const navigate = useNavigate();
@@ -14,6 +16,24 @@ function Signup() {
 
     function onSubmit(data) {
         console.log(data);
+        axios.post(`${API.BASE_URL}/api/user`, data, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => {
+                console.log("signup response: ", response);
+                if (response.data) {
+                    alert("signup successful");
+                    navigate("/Login");
+                } else {
+                    alert("signup failed");
+                }
+            })
+            .catch((error) => {
+                console.error("error", error);
+                alert("error signing up");
+            });
     }
 
     return (
