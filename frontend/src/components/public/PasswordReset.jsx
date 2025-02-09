@@ -2,6 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
 import PasswordResetCSS from "./PasswordReset.module.css";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { API } from "../../environment";
 
 function PasswordReset() {
     const navigate = useNavigate();
@@ -13,6 +16,28 @@ function PasswordReset() {
 
     function onSubmit(data) {
         console.log(data);
+        axios.post(`${API.BASE_URL}/api/user/resetPassword`, data, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => {
+                console.log("Password reset response:", response);
+                if (response.status === 200) {
+                    toast.success("Changed password successfully");
+                    navigate("/Login");
+                } else if (response.status === 401) {
+                    toast.error("Invalid Credentials");
+                } else {
+                    toast.error("Password reset failed");
+                }
+            })
+            .catch((error) => {
+                console.error("Error resetting password:", error);
+
+                toast.error("Error resetting password. Please try again.");
+
+            });
     }
     return (
         <div className={PasswordResetCSS["password-reset-form"]}>

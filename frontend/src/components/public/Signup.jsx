@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import SignupCSS from "./Signup.module.css";
 import axios from "axios";
 import { API } from "../../environment";
+import { toast } from "react-toastify";
 
 function Signup() {
     const navigate = useNavigate();
@@ -22,17 +23,17 @@ function Signup() {
             },
         })
             .then((response) => {
-                console.log("signup response: ", response);
-                if (response.data) {
-                    alert("signup successful");
+                // console.log("signup response: ", response);
+                if (response.status === 201) {
+                    toast.success("Signup successful");
                     navigate("/Login");
                 } else {
-                    alert("signup failed");
+                    toast.error("Signup failed");
                 }
             })
             .catch((error) => {
                 console.error("error", error);
-                alert("error signing up");
+                toast.error("Error signing up");
             });
     }
 

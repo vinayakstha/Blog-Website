@@ -86,4 +86,28 @@ const getUserById = async (req, res) => {
     }
 };
 
-module.exports = { create, update, deleteUser, getAllUsers, getUserById };
+const resetPassword = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        if (!email || !password) {
+            return res.status(400).send({ message: "Email and password are required" });
+        }
+
+        const user = await User.findOne({ where: { email } });
+
+        if (!user) {
+            return res.status(404).send({ message: "User not found" });
+        }
+
+        user.password = password;
+        await user.save();
+
+        res.status(200).send({ message: "Password reset successfully" });
+    } catch (error) {
+        console.error("Error resetting password:", error);
+        res.status(500).send({ message: "Failed to reset password" });
+    }
+};
+
+module.exports = { create, update, deleteUser, getAllUsers, getUserById, resetPassword };

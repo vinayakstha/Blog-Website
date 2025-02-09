@@ -5,6 +5,7 @@ import LoginCSS from "./Login.module.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { API } from "../../environment";
+import { toast } from "react-toastify";
 
 function Login() {
     const navigate = useNavigate();
@@ -25,20 +26,22 @@ function Login() {
             })
             .then((response) => {
                 // Log the entire response to inspect the structure
-                console.log("Login Response:", response.data.data.access_token);
+                // console.log("Login Response:", response.data.data.access_token);
 
                 // Check if access_token exists inside response.data
                 if (response.data && response.data.data.access_token) {
-                    console.log("Access Token:", response.data.data.access_token);
-                    localStorage.setItem("token", response.data.data.access_token); // ✅ Store Token
-                    navigate("/CreatePost"); // ✅ Redirect to Dashboard
+                    // console.log("Access Token:", response.data.data.access_token);
+                    localStorage.setItem("token", response.data.data.access_token); // Store Token
+                    toast.success("Login successful");
+                    navigate("/CreatePost");
+
                 } else {
-                    alert("Login failed! Check credentials.");
+                    toast.error("Login failed! Check credentials.");
                 }
             })
             .catch((error) => {
                 console.error("Error logging in:", error);
-                alert("Error logging in. Please try again.");
+                toast.error("Error logging in. Please try again.");
             });
 
         // reset();
