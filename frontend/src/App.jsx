@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
 
 const Login = lazy(() => import('./components/public/Login'));
 const Home = lazy(() => import('./components/public/Home'));
@@ -19,7 +20,10 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="Post" element={<Post />} />
-            <Route path="CreatePost" element={<CreatePost />} />
+            {/* <Route path="CreatePost" element={<CreatePost />} /> */}
+            <Route path="CreatePost" element={<ProtectedRoute />}>
+              <Route index element={<CreatePost />} />
+            </Route>
           </Route>
           <Route path="Login" element={<Login />} />
           <Route path="Signup" element={<Signup />} />

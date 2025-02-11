@@ -25,16 +25,10 @@ function Login() {
                 },
             })
             .then((response) => {
-                // Log the entire response to inspect the structure
-                // console.log("Login Response:", response.data.data.access_token);
-
-                // Check if access_token exists inside response.data
                 if (response.data && response.data.data.access_token) {
-                    // console.log("Access Token:", response.data.data.access_token);
                     localStorage.setItem("token", response.data.data.access_token); // Store Token
                     toast.success("Login successful");
                     navigate("/CreatePost");
-
                 } else {
                     toast.error("Login failed! Check credentials.");
                 }
