@@ -18,7 +18,7 @@
 
 .login-form-image {
     width: 100%;
-    background: url(src/assets/loginPage.png);
+    background: url(../../assets//loginPage.png);
     background-size: cover;
     background-position: center;
 }

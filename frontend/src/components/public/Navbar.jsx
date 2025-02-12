@@ -1,5 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import NavbarCSS from "./Navbar.module.css";
+import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API } from "../../environment";
@@ -11,7 +12,8 @@ function Navbar() {
     }
     const logout = () => {
         localStorage.removeItem("token");
-        navigate("/Login");
+        toast.success("Logout successful")
+        navigate("/");
     };
 
     // useEffect(() => {

@@ -53,7 +53,7 @@
 
 .home-image {
     width: 40%;
-    background: url(/src/assets/homePageImage.jpg);
+    background: url(../../assets/homePageImage.jpg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

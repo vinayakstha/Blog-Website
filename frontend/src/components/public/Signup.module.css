@@ -17,7 +17,7 @@
 
 .signup-form-image {
     width: 100%;
-    background: url(src/assets/signupPage.png);
+    background: url(../../assets/signupPage.png);
     background-size: cover;
     background-position: center;
 }
