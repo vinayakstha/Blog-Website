@@ -8,7 +8,7 @@ function authenticateToken(req, res, next) {
     if (req.path === "/api/auth/login") {
         return next();
     }
-    if (req.path === "/api/user/") {
+    if (req.path === "/api/user") {
         return next();
     }
 
@@ -25,7 +25,7 @@ function authenticateToken(req, res, next) {
         if (err) {
             return res.status(403).send("Invalid or expired token.");
         }
-        req.user = decoded; // Attach decoded payload to request object
+        req.user = decoded.user; // Attach decoded payload to request object
         next(); // Proceed to the next middleware or route handler
     });
 }
