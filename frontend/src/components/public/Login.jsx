@@ -28,7 +28,7 @@ function Login() {
                 if (response.data && response.data.data.access_token) {
                     localStorage.setItem("token", response.data.data.access_token); // Store Token
                     toast.success("Login successful");
-                    navigate("/CreatePost");
+                    navigate("/Post");
                 } else {
                     toast.error("Login failed! Check credentials.");
                 }

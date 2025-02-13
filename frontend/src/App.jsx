@@ -11,6 +11,7 @@ const Post = lazy(() => import('./components/public/Post'));
 const PasswordReset = lazy(() => import('./components/public/PasswordReset'));
 const Layout = lazy(() => import('./components/public/Layout'));
 const CreatePost = lazy(() => import('./components/private/CreatePost'));
+const About = lazy(() => import("./components/public/About"));
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="Post" element={<Post />} />
-            {/* <Route path="CreatePost" element={<CreatePost />} /> */}
+            <Route path="About" element={<About />} />
             <Route path="CreatePost" element={<ProtectedRoute />}>
               <Route index element={<CreatePost />} />
             </Route>

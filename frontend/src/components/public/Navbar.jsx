@@ -44,12 +44,18 @@ function Navbar() {
 
             <ul className={NavbarCSS["list"]}>
                 {!localStorage.getItem("token") ? (
-                    <li className={NavbarCSS["nav-li"]}>  <Link to="/">HOME</Link></li>
+                    <>
+                        <li className={NavbarCSS["nav-li"]}>  <Link to="/">HOME</Link></li>
+                        <li className={NavbarCSS["nav-li"]}><Link to="/About">ABOUT</Link></li>
+                    </>
                 ) : (
-                    <li className={NavbarCSS["nav-li"]}>  <Link to="/CreatePost">CREATE</Link></li>
+
+                    <>
+                        <li className={NavbarCSS["nav-li"]}><Link to="/Post">POSTS</Link></li>
+                        <li className={NavbarCSS["nav-li"]}>  <Link to="/CreatePost">CREATE</Link></li>
+                    </>
                 )}
 
-                <li className={NavbarCSS["nav-li"]}><Link to="/Post">POSTS</Link></li>
 
             </ul>
 

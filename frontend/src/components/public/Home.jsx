@@ -14,7 +14,7 @@ function Home() {
                             <h1 className={HomeCSS["title"]}>Write. Publish. Inspire.</h1>
                         </div>
                         <div className={HomeCSS["paragraph"]}>
-                            <p className={HomeCSS["description"]}>Become an author.</p>
+                            <p className={HomeCSS["description"]}>Join our community!</p>
                         </div>
                         <div className={HomeCSS["signup-btn-container"]}>
                             <button className={HomeCSS["signup-btn"]} onClick={signupPage}>Signup</button>
