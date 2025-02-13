@@ -2,6 +2,7 @@ import CreatePostCSS from "./CreatePost.module.css";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { API } from "../../environment";
+import { toast } from "react-toastify";
 import axios from "axios";
 function CreatePost() {
     const {
@@ -77,7 +78,7 @@ function CreatePost() {
                     Authorization: `Bearer ${token}`,
                 },
             });
-
+            toast.success("Post created successfully");
             console.log("Post created successfully");
         } catch (error) {
             console.error("Error creating post:", error);

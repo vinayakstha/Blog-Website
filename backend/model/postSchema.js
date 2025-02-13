@@ -52,7 +52,7 @@ Users.hasMany(Posts, { foreignKey: "userId" });
 Posts.belongsTo(Users, { foreignKey: "userId" });
 
 Categories.hasMany(Posts, { foreignKey: "categoryId" });
-Posts.belongsTo(Categories, { foreignKey: "categoriesId" });
+Posts.belongsTo(Categories, { foreignKey: "categoryId" });
 
 // (async () => {
 //     try {
