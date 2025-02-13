@@ -65,7 +65,7 @@ const deletePost = async (req, res) => {
 
 const getAllPosts = async (req, res) => {
     try {
-        const posts = await Post.findAll();
+        const posts = await Post.findAll({ order: [['createdAt', 'DESC']], });
         res.status(200).send({ data: posts });
     } catch (error) {
         console.log("Error fetching posts:", error);
