@@ -43,7 +43,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 300px;
+    width: 250px;
 }
 
 #text-area-input {
@@ -54,10 +54,22 @@
     height: 30px;
 }
 
+.error-message {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+#category-error-message {
+    margin-left: -30px;
+}
+
 textarea {
     resize: none;
     width: 100%;
     margin: 20px 20px;
+    margin-bottom: 0;
     padding: 5px;
     min-height: 53vh;
     font-size: 1.1rem;
@@ -65,7 +77,8 @@ textarea {
 
 .create-button-container {
     width: 100%;
-    margin-top: -5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     display: flex;
     justify-content: center;
 }

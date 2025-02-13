@@ -5,7 +5,7 @@ const uploadFile = (req, res) => {
         }
         res
             .status(200)
-            .json({ message: "File uploaded successfully!", file: req.file });
+            .json({ message: "File uploaded successfully!", filePath: req.file.path });
     } catch (error) {
         res
             .status(500)
