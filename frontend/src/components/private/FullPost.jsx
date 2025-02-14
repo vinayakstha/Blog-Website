@@ -56,7 +56,7 @@ function FullPost() {
     }
 
     const handleEdit = () => {
-        navigate(`/edit-post/${postId}`);
+        navigate(`/EditPost/${postId}`);
     };
 
     const handleDelete = async () => {

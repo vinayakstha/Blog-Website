@@ -13,6 +13,7 @@ const Layout = lazy(() => import('./components/public/Layout'));
 const CreatePost = lazy(() => import('./components/private/CreatePost'));
 const About = lazy(() => import("./components/public/About"));
 const FullPost = lazy(() => import('./components/private/FullPost'));
+const EditPost = lazy(() => import('./components/private/EditPost'));
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route element={<ProtectedRoute />}>
               <Route path='Post' element={<Post />} />
               <Route path='CreatePost' element={<CreatePost />} />
+              <Route path='EditPost/:postId' element={<EditPost />} />
               <Route path="Post/:postId" element={<FullPost />} />
             </Route>
           </Route>
