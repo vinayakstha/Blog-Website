@@ -7,6 +7,8 @@ import { API } from "../../environment";
 function Post() {
     const [posts, setPosts] = useState([]);
     const [users, setUsers] = useState({});
+    const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("");
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -41,22 +43,51 @@ function Post() {
             }
         };
 
+        const fetchCategories = async () => {
+            try {
+                const token = localStorage.getItem("token");
+                const response = await axios.get(`${API.BASE_URL}/api/category`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                setCategories(response.data.data);
+            } catch (error) {
+                console.error("Error fetching categories:", error);
+            }
+        };
+
         fetchPosts();
         fetchUsers();
+        fetchCategories();
     }, []);
+
+    const handleCategoryChange = (event) => {
+        setSelectedCategory(event.target.value);
+    };
+
+    const filteredPosts = selectedCategory
+        ? posts.filter((post) => post.categoryId === parseInt(selectedCategory))
+        : posts;
 
     return (
         <>
             <div className={PostCSS["select-container"]}>
-                <select className={PostCSS["select-input"]}>
+                <select
+                    className={PostCSS["select-input"]}
+                    value={selectedCategory}
+                    onChange={handleCategoryChange}
+                >
                     <option value="">Select Category</option>
-                    <option value="tech">Technology</option>
-                    <option value="health">Health</option>
-                    <option value="lifestyle">Lifestyle</option>
+                    {categories.map((category) => (
+                        <option key={category.categoryId} value={category.categoryId}>
+                            {category.categoryName}
+                        </option>
+                    ))}
                 </select>
             </div>
             <div className={PostCSS["post-container"]}>
-                {posts.map((post) => (
+                {filteredPosts.map((post) => (
                     <Link to={`/Post/${post.postId}`} key={post.postId}>
                         <Card
                             key={post.postId}
