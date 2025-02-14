@@ -1,5 +1,5 @@
 const User = require("../model/userSchema");
-
+const bcrypt = require("bcrypt");
 const create = async (req, res) => {
     try {
         const body = req.body;
@@ -9,10 +9,12 @@ const create = async (req, res) => {
             return res.status(500).send({ message: "Invalid" });
         }
 
+        const hashedPassword = await bcrypt.hash(body.password, 10);
+
         const users = await User.create({
             username: body.username,
             email: body.email,
-            password: body.password
+            password: hashedPassword // body.password
         });
         res.status(201).send({ data: users, message: "successfully created user" });
     } catch (error) {
@@ -100,7 +102,9 @@ const resetPassword = async (req, res) => {
             return res.status(404).send({ message: "User not found" });
         }
 
-        user.password = password;
+        // user.password = password;
+        const hashedPassword = await bcrypt.hash(password, 10);
+        user.password = hashedPassword;
         await user.save();
 
         res.status(200).send({ message: "Password reset successfully" });

@@ -1,5 +1,6 @@
 const User = require("../model/userSchema");
 const { generateToken } = require("../security/jwt-util");
+const bcrypt = require("bcrypt");
 
 const login = async (req, res) => {
     try {
@@ -14,14 +15,16 @@ const login = async (req, res) => {
         if (!user) {
             return res.status(500).send({ message: "user not found" });
         }
-        if (user.password == req.body.password) {
+
+        const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
+        if (isPasswordValid) { //user.password == req.body.password
             const token = generateToken({ user: user.toJSON() });
             return res.status(200).send({
                 data: { access_token: token },
                 message: "successfully logged in",
             });
         }
-        if (user.password != req.body.password) {
+        else { //if (user.password != req.body.password)
             return res.status(401).send({ message: "invalid credentials" });
         }
     } catch (e) {
