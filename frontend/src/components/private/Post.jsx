@@ -1,6 +1,7 @@
 import Card from "./Card";
 import PostCSS from "./Post.module.css"
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { API } from "../../environment";
 function Post() {
@@ -56,13 +57,15 @@ function Post() {
             </div>
             <div className={PostCSS["post-container"]}>
                 {posts.map((post) => (
-                    <Card
-                        key={post.postId}
-                        heading={post.title}
-                        authorName={users[post.userId]} // Assuming you have a way to get the author's name from the userId
-                        description={post.description}
-                        imageUrl={`${API.BASE_URL}/${post.photo}`}
-                    />
+                    <Link to={`/Post/${post.postId}`} key={post.postId}>
+                        <Card
+                            key={post.postId}
+                            heading={post.title}
+                            authorName={users[post.userId]} // Assuming you have a way to get the author's name from the userId
+                            description={post.description}
+                            imageUrl={`${API.BASE_URL}/${post.photo}`}
+                        />
+                    </Link>
                 ))}
             </div>
         </>
