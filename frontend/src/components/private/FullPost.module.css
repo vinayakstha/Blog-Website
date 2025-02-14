@@ -52,3 +52,29 @@
 .content-container p {
     margin-bottom: 1em;
 }
+
+#btn {
+    color: white;
+    border: none;
+    padding: 9px 27px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0px 10px 12px 10px;
+}
+
+.edit-button {
+    background-color: #00db0b;
+}
+
+.delete-button {
+    background-color: rgb(122, 0, 0);
+}
+
+.edit-button:hover {
+    background-color: #a9ffae;
+}
+
+.delete-button:hover {
+    background-color: rgb(229, 71, 71);
+}

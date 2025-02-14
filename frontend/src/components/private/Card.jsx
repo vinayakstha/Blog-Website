@@ -3,9 +3,6 @@ import CardCSS from './Card.module.css';
 import PostImg from '../../assets/post.jpeg';
 
 function Card({ heading, authorName, description, imageUrl }) {
-    // const heading = "Road to Radiant";
-    // const authorName = "Vinayak";
-    // const description = "This is a brief description of the post. It provides insight into what the post is about.";
 
     return (
         <div className={CardCSS["card"]}>
