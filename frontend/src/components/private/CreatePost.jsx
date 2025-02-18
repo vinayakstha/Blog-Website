@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { API } from "../../environment";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function CreatePost() {
     const {
         register,
@@ -13,6 +14,8 @@ function CreatePost() {
 
     const [categories, setCategories] = useState([]);
     const [userId, setUserId] = useState(null);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchCategories = async () => {
@@ -80,6 +83,7 @@ function CreatePost() {
             });
             toast.success("Post created successfully");
             console.log("Post created successfully");
+            navigate("/Post");
         } catch (error) {
             console.error("Error creating post:", error);
         }

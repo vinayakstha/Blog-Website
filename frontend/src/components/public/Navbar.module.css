@@ -16,6 +16,7 @@
     gap: 40px;
 }
 
+
 a {
     text-decoration: none;
     color: #120b46;
@@ -23,12 +24,16 @@ a {
 }
 
 a:hover {
-    color: #453f94;
+    color: #6863ad;
 }
+
 
 .login-btn-container {
     margin-left: 20px;
     margin-right: 30px;
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
 }
 
 .login-btn {
@@ -43,6 +48,17 @@ a:hover {
 
 .login-btn:hover {
     background-color: #2e2970;
+}
+
+.profile-btn {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+.profile-btn:hover {
+    transform: scale(1.04);
 }
 
 .website-name {

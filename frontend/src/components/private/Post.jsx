@@ -92,7 +92,7 @@ function Post() {
                         <Card
                             key={post.postId}
                             heading={post.title}
-                            authorName={users[post.userId]} // Assuming you have a way to get the author's name from the userId
+                            authorName={users[post.userId]}
                             description={post.description}
                             imageUrl={`${API.BASE_URL}/${post.photo}`}
                         />

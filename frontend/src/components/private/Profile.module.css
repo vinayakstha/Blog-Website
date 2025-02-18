@@ -1,0 +1,83 @@
+.profile-container {
+    width: 100%;
+    min-height: 90vh;
+}
+
+.user-details {
+    display: flex;
+    width: 100%;
+    /* border: solid black; */
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.username {
+    width: 85%;
+    padding-left: 20px;
+}
+
+.logout-button {
+    width: 15%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.post {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.my-post-h2 {
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.logout {
+    background-color: #120b46;
+    color: white;
+    border: none;
+    padding: 13px 27px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout:hover {
+    background-color: #2e2970;
+}
+
+
+@media (max-width: 768px) {
+    .user-details {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .username,
+    .logout-button {
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    .logout-button {
+        display: flex;
+        justify-content: center;
+    }
+
+    .post {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .post {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+}
