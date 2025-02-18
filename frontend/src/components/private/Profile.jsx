@@ -82,7 +82,9 @@ function Profile() {
                         </Link>
                     ))
                 ) : (
-                    <p>No posts available.</p>
+                    <div className={ProfileCSS["no-post"]}>
+                        <p>No posts available.</p>
+                    </div>
                 )}
             </div>
         </div>

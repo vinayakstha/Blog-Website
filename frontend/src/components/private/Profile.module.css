@@ -50,6 +50,11 @@
     background-color: #2e2970;
 }
 
+.no-post {
+    width: 100%;
+    margin-left: 20px;
+}
+
 
 @media (max-width: 768px) {
     .user-details {
