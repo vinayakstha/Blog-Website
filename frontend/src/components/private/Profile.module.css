@@ -1,6 +1,7 @@
 .profile-container {
     width: 100%;
     min-height: 90vh;
+    margin-top: 60px;
 }
 
 .user-details {
@@ -15,6 +16,9 @@
 .username {
     width: 85%;
     padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .logout-button {
@@ -22,6 +26,15 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 20px;
+}
+
+.image {
+    width: 100px;
+    height: 90px;
+    background: url(../../assets/profile.png) no-repeat center center;
+    background-size: cover;
+    border-radius: 50%;
+    margin-left: 20px;
 }
 
 .post {
@@ -61,6 +74,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+        justify-content: center;
     }
 
     .username,

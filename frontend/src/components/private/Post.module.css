@@ -1,3 +1,7 @@
+.main-container {
+    margin-top: 60px;
+}
+
 .post-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

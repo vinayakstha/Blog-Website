@@ -8,6 +8,7 @@
     align-items: center;
     overflow: hidden;
     margin-top: 60px;
+    color: #120b46;
 }
 
 .signup-btn {
@@ -62,7 +63,7 @@
 
 @media(max-width : 500px) {
     .main-heading {
-        font-size: large;
+        font-size: medium;
     }
 
     .child-content .home-image {

@@ -1,48 +1,123 @@
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+.footer {
+    padding: 2rem;
+    font-family: sans-serif;
+    color: white;
+    background-color: #000;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
-    color: #fff;
 }
 
-.text {
-    color: #fff;
-    margin: 0.5rem 0;
+/* Top section */
+.top {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-.links {
-    margin-top: 0.5rem;
+@media (min-width: 768px) {
+    .top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 }
 
-.link {
-    color: #fff;
+/* Brand/Logo */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.brandName {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Link groups container */
+.linkGroups {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .linkGroups {
+        flex-direction: row;
+        gap: 3rem;
+    }
+}
+
+/* Each group (About, Follow Us, Legal) */
+.linkGroup h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.linkGroup ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.linkGroup li {
+    margin-bottom: 0.25rem;
+}
+
+.linkGroup a {
+    color: #6b7280;
+    /* Tailwind's gray-600 for example */
     text-decoration: none;
-    margin: 0 0.5rem;
+    font-size: 0.875rem;
 }
 
-.link:hover {
+.linkGroup a:hover {
     text-decoration: underline;
 }
 
-.footer-text {
-    color: #fff;
+/* Divider line */
+.divider {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid gray;
+    /* Tailwind's gray-200 */
 }
 
-.icons {
+/* Bottom section */
+.bottom {
     display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    gap: 15px;
-    color: white;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
-.icons svg {
-    color: #fff;
+@media (min-width: 768px) {
+    .bottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Social icons row */
+.socialIcons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Icon links */
+.icon {
+    color: #6b7280;
+    /* Tailwind's gray-600 */
+    font-size: 1.25rem;
+    text-decoration: none;
 }

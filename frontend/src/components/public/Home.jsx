@@ -8,7 +8,7 @@ function Home() {
     }
     return (
         <>
-            <div className={HomeCSS["content"]}>
+            <div id="home-section" class={HomeCSS["content"]}>
                 <div className={HomeCSS["child-content"]}>
                     <div className={HomeCSS["home-content"]}>
                         <div className={HomeCSS["main-heading"]}>
@@ -26,7 +26,9 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <About />
+            <div id="about-section">
+                <About />
+            </div>
         </>
     )
 }

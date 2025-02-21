@@ -1,9 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import NavbarCSS from "./Navbar.module.css";
-import { toast } from "react-toastify";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { API } from "../../environment";
+import { Link as ScrollLink } from "react-scroll";
 import { CircleUserRound } from 'lucide-react';
 function Navbar() {
     const navigate = useNavigate();
@@ -25,8 +22,16 @@ function Navbar() {
             <ul className={NavbarCSS["list"]}>
                 {!localStorage.getItem("token") ? (
                     <>
-                        <li className={NavbarCSS["nav-li"]}>  <Link to="/">HOME</Link></li>
-                        <li className={NavbarCSS["nav-li"]}><Link to="/About">ABOUT</Link></li>
+                        <li className={NavbarCSS["nav-li"]}>
+                            <ScrollLink to="home-section" smooth={true} duration={500} offset={-60} className={NavbarCSS["scroll-link"]}>
+                                HOME
+                            </ScrollLink>
+                        </li>
+                        <li className={NavbarCSS["nav-li"]}>
+                            <ScrollLink to="about-section" smooth={true} duration={500} offset={-60} className={NavbarCSS["scroll-link"]}>
+                                ABOUT
+                            </ScrollLink>
+                        </li>
                     </>
                 ) : (
 
@@ -38,8 +43,6 @@ function Navbar() {
 
 
             </ul>
-
-
 
             <div className={NavbarCSS["login-btn-container"]}>
                 {localStorage.getItem("token") ? (

@@ -72,32 +72,34 @@ function Post() {
 
     return (
         <>
-            <div className={PostCSS["select-container"]}>
-                <select
-                    className={PostCSS["select-input"]}
-                    value={selectedCategory}
-                    onChange={handleCategoryChange}
-                >
-                    <option value="">Select Category</option>
-                    {categories.map((category) => (
-                        <option key={category.categoryId} value={category.categoryId}>
-                            {category.categoryName}
-                        </option>
+            <div className={PostCSS["main-container"]}>
+                <div className={PostCSS["select-container"]}>
+                    <select
+                        className={PostCSS["select-input"]}
+                        value={selectedCategory}
+                        onChange={handleCategoryChange}
+                    >
+                        <option value="">Select Category</option>
+                        {categories.map((category) => (
+                            <option key={category.categoryId} value={category.categoryId}>
+                                {category.categoryName}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className={PostCSS["post-container"]}>
+                    {filteredPosts.map((post) => (
+                        <Link to={`/Post/${post.postId}`} key={post.postId}>
+                            <Card
+                                key={post.postId}
+                                heading={post.title}
+                                authorName={users[post.userId]}
+                                description={post.description}
+                                imageUrl={`${API.BASE_URL}/${post.photo}`}
+                            />
+                        </Link>
                     ))}
-                </select>
-            </div>
-            <div className={PostCSS["post-container"]}>
-                {filteredPosts.map((post) => (
-                    <Link to={`/Post/${post.postId}`} key={post.postId}>
-                        <Card
-                            key={post.postId}
-                            heading={post.title}
-                            authorName={users[post.userId]}
-                            description={post.description}
-                            imageUrl={`${API.BASE_URL}/${post.photo}`}
-                        />
-                    </Link>
-                ))}
+                </div>
             </div>
         </>
     )

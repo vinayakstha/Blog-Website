@@ -51,12 +51,14 @@ function Profile() {
 
     if (!currentUser) return <div>Loading...</div>;
 
-    // Filter posts so that only those created by the current user are displayed.
     const userPosts = posts.filter((post) => post.userId === currentUser.userId);
 
     return (
         <div className={ProfileCSS["profile-container"]}>
             <div className={ProfileCSS["user-details"]}>
+                <div className={ProfileCSS["image"]}>
+                </div>
+
                 <div className={ProfileCSS["username"]}>
                     <h1>{currentUser.username}</h1>
                     <p>{currentUser.email}</p>
