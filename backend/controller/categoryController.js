@@ -88,4 +88,14 @@ const deleteCategory = async (req, res) => {
     }
 };
 
+// const getCategoryCount = async (req, res) => {
+//     try {
+//         const count = await Categories.count();
+//         res.status(200).send({ count });
+//     } catch (error) {
+//         console.log("Error fetching category count:", error);
+//         res.status(500).json({ error: "Failed to fetch category count" });
+//     }
+// };
+
 module.exports = { createCategory, updateCategory, deleteCategory, getAllCategories, getCategoryById };

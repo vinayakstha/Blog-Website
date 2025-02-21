@@ -4,6 +4,9 @@ function About() {
     return (
         <div className={AboutCSS["content"]}>
             <div className={AboutCSS["child-content"]}>
+                <div className={AboutCSS["home-image"]}>
+                    <div className={AboutCSS["home-image-container"]}></div>
+                </div>
                 <div className={AboutCSS["home-content"]}>
                     <div className={AboutCSS["main-heading"]}>
                         <h1 className={AboutCSS["title"]}>About Us</h1>
@@ -15,9 +18,7 @@ function About() {
                         </p>
                     </div>
                 </div>
-                <div className={AboutCSS["home-image"]}>
-                    <div className={AboutCSS["home-image-container"]}></div>
-                </div>
+
             </div>
 
             <div className={AboutCSS["mission"]}>

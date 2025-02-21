@@ -114,4 +114,14 @@ const resetPassword = async (req, res) => {
     }
 };
 
+// const getUserCount = async (req, res) => {
+//     try {
+//         const count = await User.count();
+//         res.status(200).send({ count });
+//     } catch (error) {
+//         console.log("Error fetching user count:", error);
+//         res.status(500).json({ error: "Failed to fetch user count" });
+//     }
+// };
+
 module.exports = { create, update, deleteUser, getAllUsers, getUserById, resetPassword };

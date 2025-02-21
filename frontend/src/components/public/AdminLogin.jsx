@@ -1,11 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
 import React from "react";
-import LoginCSS from "./Login.module.css";
+import AdminLoginCSS from "./AdminLogin.module.css";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-import { API } from "../../environment";
-import { toast } from "react-toastify";
 
 function Login() {
     const navigate = useNavigate();
@@ -17,43 +14,21 @@ function Login() {
 
     function onSubmit(data) {
         console.log(data);
-
-        axios
-            .post(`${API.BASE_URL}/api/auth/login`, data, {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            })
-            .then((response) => {
-                if (response.data && response.data.data.access_token) {
-                    localStorage.setItem("token", response.data.data.access_token); // Store Token
-                    toast.success("Login successful");
-                    navigate("/Post");
-                } else {
-                    toast.error("Login failed! Check credentials.");
-                }
-            })
-            .catch((error) => {
-                console.error("Error logging in:", error);
-                toast.error("Error logging in. Please try again.");
-            });
-
-        // reset();
     }
     return (
-        <div className={LoginCSS["login-form"]}>
-            <div className={LoginCSS["login-form-child"]}>
-                <div className={LoginCSS["login-form-image"]}>
+        <div className={AdminLoginCSS["login-form"]}>
+            <div className={AdminLoginCSS["login-form-child"]}>
+                <div className={AdminLoginCSS["login-form-image"]}>
                 </div>
-                <div className={LoginCSS["login-form-content"]}>
-                    <div className={LoginCSS["exit-button-container"]}>
-                        <button onClick={() => navigate("/")}>
+                <div className={AdminLoginCSS["login-form-content"]}>
+                    <div className={AdminLoginCSS["exit-button-container"]}>
+                        <button onClick={() => navigate("/Login")}>
                             <X />
                         </button>
                     </div>
-                    <h2>LOGIN</h2>
+                    <h2>ADMIN</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className={LoginCSS["input-field"]}>
+                        <div className={AdminLoginCSS["input-field"]}>
                             <input
                                 type="text"
                                 placeholder="Email"
@@ -66,10 +41,10 @@ function Login() {
                                 }
                                 )} />
                         </div>
-                        {errors.email && <p className={LoginCSS["error-message"]}>{errors.email.message}</p>}
-                        <div className={LoginCSS["input-field"]} id="loginPagePassword">
+                        {errors.email && <p className={AdminLoginCSS["error-message"]}>{errors.email.message}</p>}
+                        <div className={AdminLoginCSS["input-field"]} id="loginPagePassword">
                             <input
-                                className={LoginCSS["loginPagePaswordInput"]}
+                                className={AdminLoginCSS["loginPagePaswordInput"]}
                                 type="password" placeholder="Password"
                                 {...register("password",
                                     {
@@ -85,13 +60,13 @@ function Login() {
                                     }
                                 )} />
                         </div>
-                        {errors.password && <p className={LoginCSS["error-message"]}>{errors.password.message}</p>}
-                        <Link to="/PasswordReset" className={LoginCSS["forgot-password"]}>Forgot password?</Link>
-                        <button type="submit" className={LoginCSS["login-button"]}>Login</button>
+                        {errors.password && <p className={AdminLoginCSS["error-message"]}>{errors.password.message}</p>}
+                        {/* <Link to="/PasswordReset" className={AdminLoginCSS["forgot-password"]}>Forgot password?</Link> */}
+                        <button type="submit" className={AdminLoginCSS["login-button"]}>Login</button>
                     </form>
-                    <div className={LoginCSS["bottom-link"]}>
-                        Are you an admin?
-                        <Link to="/AdminLogin"> Admin</Link>
+                    <div className={AdminLoginCSS["bottom-link"]}>
+                        Are you a user?
+                        <Link to="/Login"> User</Link>
                     </div>
                 </div>
             </div>

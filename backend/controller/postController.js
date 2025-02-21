@@ -89,4 +89,16 @@ const getPostById = async (req, res) => {
     }
 };
 
+
+// const getPostCount = async (req, res) => {
+//     try {
+//         const posts = await Post.findAll();
+//         const count = posts.length;
+//         res.status(200).send({ count });
+//     } catch (error) {
+//         console.log("Error fetching post count:", error);
+//         res.status(500).json({ error: "Failed to fetch post count" });
+//     }
+// };
+
 module.exports = { create, update, deletePost, getAllPosts, getPostById };

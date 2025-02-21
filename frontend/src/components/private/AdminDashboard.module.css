@@ -1,0 +1,114 @@
+.dashboard-container {
+    width: 100%;
+    min-height: 90vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.counts-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.count-box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+}
+
+#post-box {
+    background-color: rgb(172, 172, 255);
+}
+
+#user-box {
+    background-color: rgb(149, 255, 149);
+}
+
+#category-box {
+    background-color: rgb(255, 172, 72);
+}
+
+.count-box h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.count-box p {
+    font-size: 2em;
+    margin: 10px 0 0;
+}
+
+.category-container {
+    margin-bottom: 20px;
+}
+
+.add-category {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.add-category input {
+    flex: 1;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.add-category button {
+    padding: 5px 10px;
+}
+
+.category-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.category-table th,
+.category-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.category-table th {
+    background-color: #f2f2f2;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.user-table th,
+.user-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.user-table th {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+    .counts-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .count-box {
+        margin: 10px 0;
+        width: 100%;
+    }
+}

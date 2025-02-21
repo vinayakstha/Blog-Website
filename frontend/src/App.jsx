@@ -15,6 +15,8 @@ const About = lazy(() => import("./components/public/About"));
 const FullPost = lazy(() => import('./components/private/FullPost'));
 const EditPost = lazy(() => import('./components/private/EditPost'));
 const Profile = lazy(() => import('./components/private/Profile'));
+const AdminLogin = lazy(() => import('./components/public/AdminLogin'));
+const AdminDashboard = lazy(() => import('./components/private/AdminDashboard'));
 
 function App() {
   return (
@@ -30,9 +32,11 @@ function App() {
               <Route path='Profile' element={<Profile />} />
               <Route path='EditPost/:postId' element={<EditPost />} />
               <Route path="Post/:postId" element={<FullPost />} />
+              <Route path="AdminDashboard" element={<AdminDashboard />} />
             </Route>
           </Route>
           <Route path="Login" element={<Login />} />
+          <Route path="AdminLogin" element={<AdminLogin />} />
           <Route path="Signup" element={<Signup />} />
           <Route path="PasswordReset" element={<PasswordReset />} />
           <Route path="*" element={<Error />} />

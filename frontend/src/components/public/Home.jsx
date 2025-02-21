@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import HomeCSS from "./Home.module.css";
+import About from "./About";
 function Home() {
     const navigate = useNavigate();
     const signupPage = () => {
@@ -25,6 +26,7 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <About />
         </>
     )
 }

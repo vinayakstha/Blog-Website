@@ -7,6 +7,7 @@
     align-items: center;
     flex-direction: column;
     overflow: hidden;
+    margin-top: 60px;
 }
 
 
@@ -32,7 +33,7 @@
 }
 
 .home-content {
-    width: 60%;
+    width: 55%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,7 +47,7 @@
 }
 
 .home-image {
-    width: 40%;
+    width: 45%;
     display: flex;
     align-items: center;
 
