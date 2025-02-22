@@ -72,44 +72,55 @@ button {
 
 .add-category button {
     padding: 5px 10px;
+    background-color: #2e2970;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.category-table {
-    width: 100%;
-    border-collapse: collapse;
+.add-category button:hover {
+    background-color: #120b46;
 }
 
-.category-table th,
-.category-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-.category-table th {
-    background-color: #f2f2f2;
-}
-
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-}
-
+.category-table,
 .user-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.category-table th,
+.category-table td,
 .user-table th,
 .user-table td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 12px;
     text-align: left;
 }
 
+.category-table th,
 .user-table th {
-    background-color: #f2f2f2;
+    background-color: #2e2970;
+    color: white;
+    font-weight: bold;
+}
+
+/* .category-table tr:nth-child(even),
+.user-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.category-table tr:hover,
+.user-table tr:hover {
+    background-color: #f1f1f1;
+} */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
 }
 
 @media (max-width: 768px) {
@@ -121,5 +132,10 @@ button {
     .count-box {
         margin: 10px 0;
         width: 100%;
+    }
+
+    .category-table,
+    .user-table {
+        font-size: 0.9em;
     }
 }

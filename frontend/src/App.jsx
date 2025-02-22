@@ -11,7 +11,6 @@ const Post = lazy(() => import('./components/private/Post'));
 const PasswordReset = lazy(() => import('./components/public/PasswordReset'));
 const Layout = lazy(() => import('./components/public/Layout'));
 const CreatePost = lazy(() => import('./components/private/CreatePost'));
-const About = lazy(() => import("./components/public/About"));
 const FullPost = lazy(() => import('./components/private/FullPost'));
 const EditPost = lazy(() => import('./components/private/EditPost'));
 const Profile = lazy(() => import('./components/private/Profile'));
@@ -25,7 +24,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="About" element={<About />} />
             <Route element={<ProtectedRoute />}>
               <Route path='Post' element={<Post />} />
               <Route path='CreatePost' element={<CreatePost />} />

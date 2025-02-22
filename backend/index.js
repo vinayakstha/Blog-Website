@@ -6,14 +6,12 @@ const cors = require("cors");
 const Users = require("./model/userSchema");
 const Categories = require("./model/categorySchema");
 const Posts = require("./model/postSchema");
-const FavouritePosts = require("./model/favouritePostSchema");
 const Admins = require("./model/adminSchema");
 
 const userRouter = require("./routes/userRoute");
 const postRouter = require("./routes/postRoute");
 const authRouter = require("./routes/authRoute");
 const categoryRouter = require("./routes/categoryRoute");
-const favouritePostRouter = require("./routes/favouritePostRoute");
 const uploadRouter = require("./routes/uploadRoute");
 const adminRouter = require("./routes/adminRoute");
 
@@ -33,12 +31,12 @@ app.use("/uploads", express.static("uploads"));
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/admin", adminRouter);
 app.use(authenticateToken);
 
 app.use("/api/post", postRouter);
 app.use("/api/category", categoryRouter);
-app.use("/api/favouritePost", favouritePostRouter);
-app.use("/api/admin", adminRouter);
+
 app.use("/api/file", uploadRouter);
 createUploadsFolder();
 
@@ -53,7 +51,6 @@ app.listen(PORT, async () => {
         await Users.sync();
         await Categories.sync();
         await Posts.sync();
-        await FavouritePosts.sync();
 
         console.log("All tables have been created");
     } catch (error) {

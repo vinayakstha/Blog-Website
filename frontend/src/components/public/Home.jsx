@@ -8,7 +8,7 @@ function Home() {
     }
     return (
         <>
-            <div id="home-section" class={HomeCSS["content"]}>
+            <div id="home-section" className={HomeCSS["content"]}>
                 <div className={HomeCSS["child-content"]}>
                     <div className={HomeCSS["home-content"]}>
                         <div className={HomeCSS["main-heading"]}>

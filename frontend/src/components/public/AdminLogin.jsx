@@ -4,7 +4,7 @@ import React from "react";
 import AdminLoginCSS from "./AdminLogin.module.css";
 import { useForm } from "react-hook-form";
 
-function Login() {
+function AdminLogin() {
     const navigate = useNavigate();
     const {
         register,
@@ -74,4 +74,5 @@ function Login() {
     )
 }
 
-export default Login;
+export default AdminLogin;
+
