@@ -4,14 +4,15 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { API } from "../../environment";
 import Card from "./Card";
-import { CircleUserRound } from 'lucide-react';
+import { X } from 'lucide-react';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
+import { useForm } from "react-hook-form";
 
 function Profile() {
     const [currentUser, setCurrentUser] = useState(null);
     const [posts, setPosts] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const navigate = useNavigate();
     const logout = () => {
@@ -49,9 +50,49 @@ function Profile() {
         fetchPosts();
     }, []);
 
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm({
+        defaultValues: {
+            username: currentUser?.username || "",
+            email: currentUser?.email || "",
+        }
+    });
+
+    useEffect(() => {
+        if (currentUser) {
+            setValue("username", currentUser.username);
+            setValue("email", currentUser.email);
+        }
+    }, [currentUser, setValue]);
+
     if (!currentUser) return <div>Loading...</div>;
 
     const userPosts = posts.filter((post) => post.userId === currentUser.userId);
+
+    const handleEditProfile = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleSaveProfile = async (data) => {
+        const token = localStorage.getItem("token");
+        try {
+            await axios.put(`${API.BASE_URL}/api/user/${currentUser.userId}`, {
+                username: data.username,
+                email: data.email,
+            }, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+            toast.success("Profile updated successfully");
+            setIsModalOpen(false);
+            setCurrentUser({ ...currentUser, username: data.username, email: data.email });
+        } catch (error) {
+            console.error("Error updating profile:", error);
+            toast.error("Error updating profile. Please try again.");
+        }
+    };
 
     return (
         <div className={ProfileCSS["profile-container"]}>
@@ -63,7 +104,8 @@ function Profile() {
                     <h1>{currentUser.username}</h1>
                     <p>{currentUser.email}</p>
                 </div>
-                <div className={ProfileCSS["logout-button"]}>
+                <div className={ProfileCSS["buttons"]}>
+                    <button className={ProfileCSS["edit-profile"]} onClick={handleEditProfile}>Edit Profile</button>
                     <button className={ProfileCSS["logout"]} onClick={logout}>Logout</button>
                 </div>
             </div>
@@ -89,6 +131,49 @@ function Profile() {
                     </div>
                 )}
             </div>
+
+            {isModalOpen && (
+                <div className={ProfileCSS["modal"]}>
+                    <div className={ProfileCSS["modal-content"]}>
+                        <div>
+                            <span className={ProfileCSS["close"]} onClick={handleCloseModal}><X /></span>
+
+                            <h2>Edit Profile</h2>
+                        </div>
+                        <form onSubmit={handleSubmit(handleSaveProfile)}>
+                            <div className={ProfileCSS["input-field"]}>
+                                <label>Username</label>
+                                <input
+                                    type="text"
+                                    {...register("username", {
+                                        required: "Username is required",
+                                        minLength: {
+                                            value: 4,
+                                            message: "Must be longer than 4 characters"
+                                        }
+                                    })}
+                                />
+                                {errors.username && <p className={ProfileCSS["error-message"]}>{errors.username.message}</p>}
+                            </div>
+                            <div className={ProfileCSS["input-field"]}>
+                                <label>Email</label>
+                                <input
+                                    type="email"
+                                    {...register("email", {
+                                        required: "Email is required",
+                                        pattern: {
+                                            value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                                            message: "Invalid Email"
+                                        }
+                                    })}
+                                />
+                                {errors.email && <p className={ProfileCSS["error-message"]}>{errors.email.message}</p>}
+                            </div>
+                            <button type="submit" className={ProfileCSS["save-button"]}>Save</button>
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

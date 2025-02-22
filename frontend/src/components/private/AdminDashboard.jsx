@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AdminDashboardCSS from './AdminDashboard.module.css';
 import axios from 'axios';
 import { API } from '../../environment';
+import { Trash2 } from 'lucide-react';
 
 function AdminDashboard() {
     const [postCount, setPostCount] = useState(0);
@@ -119,7 +120,7 @@ function AdminDashboard() {
                             <tr key={category.categoryId}>
                                 <td>{category.categoryName}</td>
                                 <td>
-                                    <button onClick={() => handleDeleteCategory(category.categoryId)}>Delete</button>
+                                    <button className={AdminDashboardCSS['delete-button']} onClick={() => handleDeleteCategory(category.categoryId)}><Trash2 /></button>
                                 </td>
                             </tr>
                         ))}

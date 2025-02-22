@@ -90,6 +90,9 @@ function CreatePost() {
     }
     return (
         <div className={CreatePostCSS["main-container"]}>
+            <div className={CreatePostCSS["heading"]}>
+                <h2>Create a new post</h2>
+            </div>
             <form className={CreatePostCSS["create-form"]} onSubmit={handleSubmit(onSubmit)}>
                 <div className={CreatePostCSS["input-field"]}>
                     <input type="text" placeholder="Title"  {...register("title", { required: "Title is required" })} />
