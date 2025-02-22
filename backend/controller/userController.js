@@ -14,7 +14,7 @@ const create = async (req, res) => {
         const users = await User.create({
             username: body.username,
             email: body.email,
-            password: hashedPassword // body.password
+            password: hashedPassword
         });
         res.status(201).send({ data: users, message: "successfully created user" });
     } catch (error) {

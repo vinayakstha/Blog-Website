@@ -4,7 +4,6 @@ const bcrypt = require("bcrypt");
 
 const login = async (req, res) => {
     try {
-        //fetching all the data from users table
         if (req.body.email == null) {
             return res.status(500).send({ message: "email is required" });
         }

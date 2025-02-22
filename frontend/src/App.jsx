@@ -2,6 +2,7 @@ import './App.css';
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
+import AdminProtectedRoute from './AdminProtectedRoute';
 
 const Login = lazy(() => import('./components/public/Login'));
 const Home = lazy(() => import('./components/public/Home'));
@@ -30,6 +31,9 @@ function App() {
               <Route path='Profile' element={<Profile />} />
               <Route path='EditPost/:postId' element={<EditPost />} />
               <Route path="Post/:postId" element={<FullPost />} />
+              {/* <Route path="AdminDashboard" element={<AdminDashboard />} /> */}
+            </Route>
+            <Route element={<AdminProtectedRoute />}>
               <Route path="AdminDashboard" element={<AdminDashboard />} />
             </Route>
           </Route>

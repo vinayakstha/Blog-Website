@@ -3,7 +3,11 @@
     min-height: 90vh;
     padding: 20px;
     box-sizing: border-box;
-    margin-top: 60px;
+    margin-top: 45px;
+}
+
+.heading {
+    margin-bottom: 10px;
 }
 
 .counts-container {
@@ -20,6 +24,7 @@ button {
 
 .delete-button {
     color: red;
+    padding: 0;
 }
 
 .count-box {
@@ -31,8 +36,14 @@ button {
     margin: 0 10px;
 }
 
+.error-message {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
 #post-box {
-    background-color: rgb(172, 172, 255);
+    background-color: #3ba4ff;
 }
 
 #user-box {
@@ -66,13 +77,14 @@ button {
 
 .add-category input {
     flex: 1;
-    padding: 5px;
+    padding: 6px;
     margin-right: 10px;
+    font-size: 15px;
 }
 
 .add-category button {
-    padding: 5px 10px;
-    background-color: #2e2970;
+    padding: 9px 10px;
+    background-color: #120b46;
     color: white;
     border: none;
     border-radius: 5px;
@@ -81,7 +93,7 @@ button {
 }
 
 .add-category button:hover {
-    background-color: #120b46;
+    background-color: #2e2970;
 }
 
 .category-table,
@@ -103,20 +115,11 @@ button {
 
 .category-table th,
 .user-table th {
-    background-color: #2e2970;
+    background-color: #120b46;
     color: white;
     font-weight: bold;
 }
 
-/* .category-table tr:nth-child(even),
-.user-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.category-table tr:hover,
-.user-table tr:hover {
-    background-color: #f1f1f1;
-} */
 
 .table-container {
     width: 100%;
@@ -137,5 +140,9 @@ button {
     .category-table,
     .user-table {
         font-size: 0.9em;
+    }
+
+    .heading {
+        text-align: center;
     }
 }
