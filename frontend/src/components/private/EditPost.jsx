@@ -75,7 +75,6 @@ function EditPost() {
         try {
             const token = localStorage.getItem("token");
 
-            // Upload the file if a new file is selected
             let photoPath = null;
             if (data.file.length > 0) {
                 const formData = new FormData();
@@ -91,12 +90,11 @@ function EditPost() {
                 photoPath = uploadResponse.data.filePath;
             }
 
-            // Update the post with the new data
             const postData = {
                 title: data.title,
                 description: data.description,
                 content: data.content,
-                photo: photoPath || undefined, // Only update the photo if a new one is uploaded
+                photo: photoPath || undefined,
                 categoryId: data.category,
                 userId: userId,
             };
@@ -115,6 +113,9 @@ function EditPost() {
 
     return (
         <div className={EditPostCSS["main-container"]}>
+            <div className={EditPostCSS["heading"]}>
+                <h2>Edit your post</h2>
+            </div>
             <form className={EditPostCSS["create-form"]} onSubmit={handleSubmit(onSubmit)}>
                 <div className={EditPostCSS["input-field"]}>
                     <input type="text" placeholder="Title" {...register("title", { required: "Title is required" })} />

@@ -40,7 +40,7 @@ function Footer() {
                 <hr className={FooterCSS.divider} />
 
                 <div className={FooterCSS.bottom}>
-                    <span>© 2022 Writehaven</span>
+                    <span>© 2025 Writehaven</span>
                     <div className={FooterCSS.socialIcons}>
                         <a href="https://facebook.com/" aria-label="Facebook" className={FooterCSS.icon}>
                             <Facebook />

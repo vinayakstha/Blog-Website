@@ -5,8 +5,13 @@
 }
 
 .create-form {
-    margin-top: 20px;
+    margin-top: 5px;
     min-height: 90vh;
+}
+
+.heading {
+    margin-top: 5px;
+    margin-left: 20px;
 }
 
 .input-field {

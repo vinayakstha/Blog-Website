@@ -53,7 +53,6 @@ function CreatePost() {
         try {
             const token = localStorage.getItem("token");
 
-            // Upload the file
             const formData = new FormData();
             formData.append("file", data.file[0]);
 
@@ -66,7 +65,6 @@ function CreatePost() {
 
             const photoPath = uploadResponse.data.filePath;
 
-            // Create the post with the photo path
             const postData = {
                 title: data.title,
                 description: data.description,
